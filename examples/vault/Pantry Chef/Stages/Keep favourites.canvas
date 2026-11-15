@@ -1,0 +1,59 @@
+{
+	"nodes": [
+		{
+			"id": "543246d49f45088c",
+			"type": "group",
+			"label": "🧩 What happens here",
+			"x": 380,
+			"y": -50,
+			"width": 420,
+			"height": 300
+		},
+		{
+			"id": "cad97d8c678d1846",
+			"type": "text",
+			"text": "### 🧩 [[Pantry Chef/Parts/Favourites keeper|Favourites keeper]] 🚧\nSaves a recipe when someone replies !fav to it.\n\n**Uses:** 🗄️ Request history",
+			"x": 430,
+			"y": 0,
+			"width": 320,
+			"height": 200
+		},
+		{
+			"id": "5b9df83699c0465b",
+			"type": "text",
+			"text": "🧩 **[[Pantry Chef/Parts/Message router|Message router]]**\n*[[Pantry Chef/Stages/1 Hear the request.canvas|1 · Hear the request]]*",
+			"x": 0,
+			"y": 50,
+			"width": 260,
+			"height": 100
+		},
+		{
+			"id": "8443f5611cc47c85",
+			"type": "text",
+			"text": "🗄️ **[[Pantry Chef/Storage/Request history|Request history]]**\n*Storage*\nUsed by: Favourites keeper",
+			"x": 0,
+			"y": 390,
+			"width": 260,
+			"height": 140,
+			"color": "3"
+		},
+		{
+			"id": "e1508577385e4ab8",
+			"type": "text",
+			"text": "# Keep favourites\nA !fav reply saves that recipe.\n\n← [[Pantry Chef/1 Big Picture.canvas|1 Big Picture]]",
+			"x": 0,
+			"y": -290,
+			"width": 760,
+			"height": 160
+		}
+	],
+	"edges": [
+		{
+			"id": "8bc3d2fe678f80c4",
+			"fromNode": "5b9df83699c0465b",
+			"fromSide": "right",
+			"toNode": "cad97d8c678d1846",
+			"toSide": "left"
+		}
+	]
+}

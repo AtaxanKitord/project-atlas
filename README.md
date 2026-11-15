@@ -27,7 +27,7 @@ Plan vs Reality, checked against the plan that was recorded before the first lin
 
 More: [What If board](docs/images/what-if.png) · [a stage zoomed in](docs/images/stage.png) · [Flows](docs/images/flows.png).
 
-**Try it without installing anything:** open the folder [`examples/obsidian-vault`](examples/obsidian-vault) in Obsidian (*Open folder as vault*) and start from `Project Atlas/Pantry Chef/Pantry Chef.md`.
+**Try it without installing anything:** open the folder [`examples/vault`](examples/vault) in Obsidian (*Open folder as vault*) and start from `Pantry Chef/Pantry Chef.md`.
 
 ## What you get
 
@@ -103,7 +103,7 @@ Everything runs on your machine. The scripts read your project and write only to
 .claude-plugin/          plugin.json, marketplace.json
 commands/atlas.md        the /project-atlas:atlas command
 hooks/hooks.json         the session-start refresh reminder
-examples/obsidian-vault/ a finished example atlas you can open in Obsidian
+examples/vault/          a finished example atlas you can open in Obsidian
 docs/images/             the pictures in this README
 skills/project-atlas/
 ├── SKILL.md                    instructions Claude follows

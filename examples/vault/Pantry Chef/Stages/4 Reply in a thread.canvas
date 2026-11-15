@@ -1,0 +1,76 @@
+{
+	"nodes": [
+		{
+			"id": "282a2fd91907ae8a",
+			"type": "group",
+			"label": "🧩 What happens here",
+			"x": 380,
+			"y": -50,
+			"width": 420,
+			"height": 320
+		},
+		{
+			"id": "5a38f5a767bbd486",
+			"type": "text",
+			"text": "### 🧩 [[Pantry Chef/Parts/Reply formatter|Reply formatter]]\nTurns the recipes into a tidy Discord thread with one message per recipe.\n\n**Uses:** ☁️ Discord API",
+			"x": 430,
+			"y": 0,
+			"width": 320,
+			"height": 220
+		},
+		{
+			"id": "09e8551814292f7d",
+			"type": "text",
+			"text": "🧩 **[[Pantry Chef/Parts/Recipe writer|Recipe writer]]**\n*[[Pantry Chef/Stages/3 Cook up recipes.canvas|3 · Cook up recipes]]*",
+			"x": 0,
+			"y": 60,
+			"width": 260,
+			"height": 100
+		},
+		{
+			"id": "c17e97050562280d",
+			"type": "text",
+			"text": "📤 **[[Pantry Chef/Outputs/Recipe thread|Recipe thread]]**\n*Output*",
+			"x": 920,
+			"y": 60,
+			"width": 260,
+			"height": 100,
+			"color": "4"
+		},
+		{
+			"id": "e5c28f45255b3f2c",
+			"type": "text",
+			"text": "☁️ **[[Pantry Chef/Outside Services/Discord API|Discord API]]**\n*Outside service*\nUsed by: Reply formatter",
+			"x": 0,
+			"y": 410,
+			"width": 260,
+			"height": 140,
+			"color": "2"
+		},
+		{
+			"id": "1ae13b66d0c552a4",
+			"type": "text",
+			"text": "# 4 · Reply in a thread\nEach recipe becomes its own message in a thread under the request.\n\n← [[Pantry Chef/1 Big Picture.canvas|1 Big Picture]] · Previous stage: [[Pantry Chef/Stages/3 Cook up recipes.canvas|3 · Cook up recipes]]",
+			"x": 0,
+			"y": -290,
+			"width": 760,
+			"height": 160
+		}
+	],
+	"edges": [
+		{
+			"id": "21d5845c531799de",
+			"fromNode": "09e8551814292f7d",
+			"fromSide": "right",
+			"toNode": "5a38f5a767bbd486",
+			"toSide": "left"
+		},
+		{
+			"id": "9e2da9798e005b07",
+			"fromNode": "5a38f5a767bbd486",
+			"fromSide": "right",
+			"toNode": "c17e97050562280d",
+			"toSide": "left"
+		}
+	]
+}

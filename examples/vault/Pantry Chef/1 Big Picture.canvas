@@ -1,0 +1,182 @@
+{
+	"nodes": [
+		{
+			"id": "072f521c294b5d02",
+			"type": "group",
+			"label": "🔄 Runs in the background",
+			"x": 0,
+			"y": 540,
+			"width": 800,
+			"height": 420
+		},
+		{
+			"id": "5a476c25c45ed0e3",
+			"type": "group",
+			"label": "🧰 What it relies on",
+			"x": 920,
+			"y": 540,
+			"width": 1180,
+			"height": 320
+		},
+		{
+			"id": "31bea767449eaf65",
+			"type": "text",
+			"text": "### ▶ Starts here\n- 👤 [[Pantry Chef/People/Server member|Server member]]\n- 👤 [[Pantry Chef/People/Bot owner|Bot owner]]\n- 📥 [[Pantry Chef/Inputs/!cook command|!cook command]]\n- 📥 [[Pantry Chef/Inputs/!fav command|!fav command]]",
+			"x": 0,
+			"y": 0,
+			"width": 320,
+			"height": 320,
+			"color": "5"
+		},
+		{
+			"id": "a1a5c0baa815ce8d",
+			"type": "text",
+			"text": "### [[Pantry Chef/Stages/1 Hear the request.canvas|1 · Hear the request]]\nBot commands are picked out of the chat and checked against the daily limit.\n\n**Parts**\n- 🧩 [[Pantry Chef/Parts/Message router|Message router]]\n- 🧩 [[Pantry Chef/Parts/Cost guard|Cost guard]] ➕\n\n➜ **Hands on:** an allowed request",
+			"x": 430,
+			"y": 0,
+			"width": 320,
+			"height": 320
+		},
+		{
+			"id": "0952bdab623464cc",
+			"type": "text",
+			"text": "### [[Pantry Chef/Stages/2 Read the fridge.canvas|2 · Read the fridge]]\nThe message becomes a clean list of ingredients.\n\n**Parts**\n- 🧩 [[Pantry Chef/Parts/Ingredient reader|Ingredient reader]]\n\n➜ **Hands on:** ingredient list",
+			"x": 860,
+			"y": 0,
+			"width": 320,
+			"height": 320
+		},
+		{
+			"id": "81e2802a9d538dba",
+			"type": "text",
+			"text": "### [[Pantry Chef/Stages/3 Cook up recipes.canvas|3 · Cook up recipes]]\nClaude suggests three recipes; the request and answer are saved.\n\n**Parts**\n- 🧩 [[Pantry Chef/Parts/Recipe writer|Recipe writer]]\n\n**Uses:** ☁️ [[Pantry Chef/Outside Services/Claude API|Claude API]] · 🗄️ [[Pantry Chef/Storage/Request history|Request history]]\n\n➜ **Hands on:** three recipes",
+			"x": 1290,
+			"y": 0,
+			"width": 320,
+			"height": 320
+		},
+		{
+			"id": "31f000bbd5f8082a",
+			"type": "text",
+			"text": "### [[Pantry Chef/Stages/4 Reply in a thread.canvas|4 · Reply in a thread]]\nEach recipe becomes its own message in a thread under the request.\n\n**Parts**\n- 🧩 [[Pantry Chef/Parts/Reply formatter|Reply formatter]]\n\n**Uses:** ☁️ [[Pantry Chef/Outside Services/Discord API|Discord API]]",
+			"x": 1720,
+			"y": 0,
+			"width": 320,
+			"height": 320
+		},
+		{
+			"id": "11c1dd773b142e84",
+			"type": "text",
+			"text": "### ■ Comes out\n- 📤 [[Pantry Chef/Outputs/Recipe thread|Recipe thread]] · *from 4*",
+			"x": 2150,
+			"y": 0,
+			"width": 320,
+			"height": 320,
+			"color": "4"
+		},
+		{
+			"id": "f0ad5a71933882be",
+			"type": "text",
+			"text": "### [[Pantry Chef/Stages/Keep favourites.canvas|Keep favourites]]\nA !fav reply saves that recipe.\n\n**Parts**\n- 🧩 [[Pantry Chef/Parts/Favourites keeper|Favourites keeper]] 🚧\n\n**Uses:** 🗄️ [[Pantry Chef/Storage/Request history|Request history]]",
+			"x": 50,
+			"y": 590,
+			"width": 320,
+			"height": 320,
+			"color": "6"
+		},
+		{
+			"id": "2c15138a31e0259d",
+			"type": "text",
+			"text": "### [[Pantry Chef/Stages/Monday stats.canvas|Monday stats]]\nEvery Monday the most-used ingredients are posted.\n\n**Parts**\n- 🧩 [[Pantry Chef/Parts/Weekly stats|Weekly stats]] ➕\n\n**Uses:** 🗄️ [[Pantry Chef/Storage/Request history|Request history]]\n\n**In:** 📥 [[Pantry Chef/Inputs/Monday timer|Monday timer]]\n**Out:** 📤 [[Pantry Chef/Outputs/Monday post|Monday post]]",
+			"x": 430,
+			"y": 590,
+			"width": 320,
+			"height": 320,
+			"color": "6"
+		},
+		{
+			"id": "880e6e33ea63d9e9",
+			"type": "text",
+			"text": "### 🗄️ Where data is kept\n- 🗄️ [[Pantry Chef/Storage/Request history|Request history]] ⚠️: SQLite file with every request, answer and favourite.",
+			"x": 970,
+			"y": 590,
+			"width": 320,
+			"height": 220,
+			"color": "3"
+		},
+		{
+			"id": "e4004dd3c6fa358f",
+			"type": "text",
+			"text": "### ☁️ Outside services it relies on\n- ☁️ [[Pantry Chef/Outside Services/Claude API|Claude API]]: Writes the recipes.\n- ☁️ [[Pantry Chef/Outside Services/Discord API|Discord API]]: Delivers messages to the bot and carries its replies.",
+			"x": 1350,
+			"y": 590,
+			"width": 320,
+			"height": 220,
+			"color": "2"
+		},
+		{
+			"id": "b11b01607acff49f",
+			"type": "text",
+			"text": "### ⚙️ Settings and secrets\n- ⚙️ [[Pantry Chef/Settings/API keys|API keys]]: The Discord token and the Claude API key.\n- ⚙️ [[Pantry Chef/Settings/Bot settings|Bot settings]]: Model, number of recipes, daily limit per person.",
+			"x": 1730,
+			"y": 590,
+			"width": 320,
+			"height": 220
+		},
+		{
+			"id": "2f4c6f6342eb5a3d",
+			"type": "text",
+			"text": "**How to read this map**\nRead left to right: where it starts, the stages it goes through, what comes out. Click any name to open its note; each note shows that part's own connections.\n\nBadges: ➕ added along the way · 🚧 unfinished · 💤 unused · ⚠️ risky",
+			"x": 820,
+			"y": -300,
+			"width": 600,
+			"height": 200
+		},
+		{
+			"id": "2cb77bde95bd413a",
+			"type": "text",
+			"text": "# Pantry Chef\n**1 Big Picture**\n\nA Discord bot that suggests dinner recipes from whatever is in your fridge.\n\nAtlas: [[Pantry Chef/Pantry Chef|Pantry Chef]] · [[Pantry Chef/2 Flows.canvas|2 Flows]] · [[Pantry Chef/3 What If.canvas|3 What If]] · [[Pantry Chef/4 Plan vs Reality.canvas|4 Plan vs Reality]]",
+			"x": 0,
+			"y": -300,
+			"width": 760,
+			"height": 200
+		}
+	],
+	"edges": [
+		{
+			"id": "dafda26c4f0bd4c8",
+			"fromNode": "31bea767449eaf65",
+			"fromSide": "right",
+			"toNode": "a1a5c0baa815ce8d",
+			"toSide": "left"
+		},
+		{
+			"id": "29916acaf686daa3",
+			"fromNode": "a1a5c0baa815ce8d",
+			"fromSide": "right",
+			"toNode": "0952bdab623464cc",
+			"toSide": "left"
+		},
+		{
+			"id": "57b7404e3c3c3501",
+			"fromNode": "0952bdab623464cc",
+			"fromSide": "right",
+			"toNode": "81e2802a9d538dba",
+			"toSide": "left"
+		},
+		{
+			"id": "9c9924fe8b64c833",
+			"fromNode": "81e2802a9d538dba",
+			"fromSide": "right",
+			"toNode": "31f000bbd5f8082a",
+			"toSide": "left"
+		},
+		{
+			"id": "0e8043b2966337cd",
+			"fromNode": "31f000bbd5f8082a",
+			"fromSide": "right",
+			"toNode": "11c1dd773b142e84",
+			"toSide": "left"
+		}
+	]
+}

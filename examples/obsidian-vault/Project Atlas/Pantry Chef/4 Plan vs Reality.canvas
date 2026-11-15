@@ -1,0 +1,220 @@
+{
+	"nodes": [
+		{
+			"id": "4fa24548fa8427f1",
+			"type": "group",
+			"label": "📋 Plan checklist (✅ 1 · 🟡 1 · ❌ 1 · 🔀 1)",
+			"x": 0,
+			"y": 400,
+			"width": 380,
+			"height": 870,
+			"color": "5"
+		},
+		{
+			"id": "5a52d2c955fd0950",
+			"type": "group",
+			"label": "✅ Built as planned (1)",
+			"x": 460,
+			"y": 400,
+			"width": 380,
+			"height": 240,
+			"color": "4"
+		},
+		{
+			"id": "e3879b7bcd946f9e",
+			"type": "group",
+			"label": "➕ Added along the way (2)",
+			"x": 920,
+			"y": 400,
+			"width": 380,
+			"height": 470,
+			"color": "6"
+		},
+		{
+			"id": "872e0cfab8134b79",
+			"type": "group",
+			"label": "🚧 Unfinished (1)",
+			"x": 1380,
+			"y": 400,
+			"width": 380,
+			"height": 200,
+			"color": "3"
+		},
+		{
+			"id": "82f8725411e21d40",
+			"type": "group",
+			"label": "❌ Planned but not built (1)",
+			"x": 1840,
+			"y": 400,
+			"width": 380,
+			"height": 220,
+			"color": "2"
+		},
+		{
+			"id": "0bca0a422081f3ca",
+			"type": "group",
+			"label": "⚠️ Risks to know (2)",
+			"x": 2300,
+			"y": 400,
+			"width": 380,
+			"height": 350,
+			"color": "1"
+		},
+		{
+			"id": "05276aa222383f2d",
+			"type": "group",
+			"label": "❓ Questions for you (2)",
+			"x": 2760,
+			"y": 400,
+			"width": 380,
+			"height": 310,
+			"color": "5"
+		},
+		{
+			"id": "6c6ace185012f82b",
+			"type": "text",
+			"text": "### 🎯 What was planned\nA Discord bot for my friends' server that turns what's in your fridge into a recipe idea.\n\n*Source of this: your plan, recorded on 2026-11-15*\n\n📋 [[Project Atlas/Pantry Chef/0 Plan|0 Plan]]",
+			"x": 0,
+			"y": 0,
+			"width": 640,
+			"height": 240,
+			"color": "5"
+		},
+		{
+			"id": "971e1aabe93deea5",
+			"type": "text",
+			"text": "### How close is it\nThe core idea works and grew sensibly: a cost guard and a Monday post were added. Favourites are half done, and the history has no backups or limits.",
+			"x": 700,
+			"y": 0,
+			"width": 640,
+			"height": 240
+		},
+		{
+			"id": "4a9098d126fa0890",
+			"type": "text",
+			"text": "🔀 **Recipe from what's in the fridge**\n*built differently*\nThree recipes instead of one.\n\n→ [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]",
+			"x": 40,
+			"y": 440,
+			"width": 300,
+			"height": 200
+		},
+		{
+			"id": "09043032bc6837b5",
+			"type": "text",
+			"text": "✅ **Answer in the same channel**\n*built*\nIn a thread, which keeps the channel tidy.\n\n→ [[Project Atlas/Pantry Chef/Parts/Reply formatter|Reply formatter]]",
+			"x": 40,
+			"y": 670,
+			"width": 300,
+			"height": 200
+		},
+		{
+			"id": "92d7900a8d4d7e42",
+			"type": "text",
+			"text": "🟡 **Save favourite recipes**\n*partly built*\nSaving works; listing them doesn't exist yet.\n\n→ [[Project Atlas/Pantry Chef/Parts/Favourites keeper|Favourites keeper]]",
+			"x": 40,
+			"y": 900,
+			"width": 300,
+			"height": 200
+		},
+		{
+			"id": "804737d6625101ba",
+			"type": "text",
+			"text": "❌ **Vegetarian mode**\n*not built*",
+			"x": 40,
+			"y": 1130,
+			"width": 300,
+			"height": 100
+		},
+		{
+			"id": "9c3c3dba104c7adf",
+			"type": "text",
+			"text": "**Recipes from ingredients**\nWorks end to end.\n\n→ [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]",
+			"x": 500,
+			"y": 440,
+			"width": 300,
+			"height": 160
+		},
+		{
+			"id": "1fab0318057051a9",
+			"type": "text",
+			"text": "**Cost guard**\nAdded after a friend sent 80 requests in one evening.\n\n→ [[Project Atlas/Pantry Chef/Parts/Cost guard|Cost guard]]",
+			"x": 960,
+			"y": 440,
+			"width": 300,
+			"height": 180
+		},
+		{
+			"id": "7323586867c64fb3",
+			"type": "text",
+			"text": "**Monday stats**\nThe plan put statistics out of scope.\n\n→ [[Project Atlas/Pantry Chef/Parts/Weekly stats|Weekly stats]]",
+			"x": 960,
+			"y": 650,
+			"width": 300,
+			"height": 180
+		},
+		{
+			"id": "cf51c76be78d0acb",
+			"type": "text",
+			"text": "**Listing favourites**\n\n→ [[Project Atlas/Pantry Chef/Parts/Favourites keeper|Favourites keeper]]",
+			"x": 1420,
+			"y": 440,
+			"width": 300,
+			"height": 120
+		},
+		{
+			"id": "9336eabefe0726e7",
+			"type": "text",
+			"text": "**Vegetarian mode**\nPlanned as a nice-to-have; no trace in the code.",
+			"x": 1880,
+			"y": 440,
+			"width": 300,
+			"height": 140
+		},
+		{
+			"id": "ccc1a9e1f17e3320",
+			"type": "text",
+			"text": "**No backups of the history**\n\n→ [[Project Atlas/Pantry Chef/Storage/Request history|Request history]]",
+			"x": 2340,
+			"y": 440,
+			"width": 300,
+			"height": 120
+		},
+		{
+			"id": "0fa3ad01198ae5d9",
+			"type": "text",
+			"text": "**Errors may log the API key**\n\n→ [[Project Atlas/Pantry Chef/Settings/API keys|API keys]] · [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]",
+			"x": 2340,
+			"y": 590,
+			"width": 300,
+			"height": 120
+		},
+		{
+			"id": "9c82558e0f908528",
+			"type": "text",
+			"text": "**Keep every request forever, or only for 90 days?**",
+			"x": 2800,
+			"y": 440,
+			"width": 300,
+			"height": 100
+		},
+		{
+			"id": "5b6cc6da27daf153",
+			"type": "text",
+			"text": "**Is vegetarian mode still wanted?**",
+			"x": 2800,
+			"y": 570,
+			"width": 300,
+			"height": 100
+		},
+		{
+			"id": "699ad1ebf1823103",
+			"type": "text",
+			"text": "# Pantry Chef\n**4 Plan vs Reality**\n\nA Discord bot that suggests dinner recipes from whatever is in your fridge.\n\nAtlas: [[Project Atlas/Pantry Chef/Pantry Chef|Pantry Chef]] · [[Project Atlas/Pantry Chef/1 Big Picture.canvas|1 Big Picture]] · [[Project Atlas/Pantry Chef/2 Flows.canvas|2 Flows]] · [[Project Atlas/Pantry Chef/3 What If.canvas|3 What If]]",
+			"x": 0,
+			"y": -280,
+			"width": 760,
+			"height": 200
+		}
+	],
+	"edges": []
+}

@@ -1,0 +1,16 @@
+{
+  "name": "project-atlas",
+  "description": "Project Atlas by AtaXan: map any project into an Obsidian atlas and track how it drifts from the plan.",
+  "owner": {
+    "name": "AtaXan",
+    "url": "https://github.com/AtaxanKitord"
+  },
+  "plugins": [
+    {
+      "name": "project-atlas",
+      "source": "./",
+      "description": "Map any project into an Obsidian atlas: linked notes for the graph view plus canvases for the system map, flows, what-if scenarios and plan vs reality.",
+      "version": "0.1.0"
+    }
+  ]
+}

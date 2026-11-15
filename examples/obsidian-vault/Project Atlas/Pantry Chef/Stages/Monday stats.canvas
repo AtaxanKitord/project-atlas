@@ -1,0 +1,77 @@
+{
+	"nodes": [
+		{
+			"id": "2d88fc952f7e92bb",
+			"type": "group",
+			"label": "🧩 What happens here",
+			"x": 380,
+			"y": -50,
+			"width": 420,
+			"height": 300
+		},
+		{
+			"id": "37e5cd02125ae0ab",
+			"type": "text",
+			"text": "### 🧩 [[Project Atlas/Pantry Chef/Parts/Weekly stats|Weekly stats]] ➕\nCounts last week's ingredients and posts the top ten.\n\n**Uses:** 🗄️ Request history",
+			"x": 430,
+			"y": 0,
+			"width": 320,
+			"height": 200
+		},
+		{
+			"id": "82940eaaedb41fd9",
+			"type": "text",
+			"text": "📥 **[[Project Atlas/Pantry Chef/Inputs/Monday timer|Monday timer]]**\n*Input*",
+			"x": 0,
+			"y": 50,
+			"width": 260,
+			"height": 100,
+			"color": "5"
+		},
+		{
+			"id": "90896fc84070b302",
+			"type": "text",
+			"text": "📤 **[[Project Atlas/Pantry Chef/Outputs/Monday post|Monday post]]**\n*Output*",
+			"x": 920,
+			"y": 50,
+			"width": 260,
+			"height": 100,
+			"color": "4"
+		},
+		{
+			"id": "1f4254bfc1c62bd7",
+			"type": "text",
+			"text": "🗄️ **[[Project Atlas/Pantry Chef/Storage/Request history|Request history]]**\n*Storage*\nUsed by: Weekly stats",
+			"x": 0,
+			"y": 390,
+			"width": 260,
+			"height": 140,
+			"color": "3"
+		},
+		{
+			"id": "3f3442fb6fb1aa64",
+			"type": "text",
+			"text": "# Monday stats\nEvery Monday the most-used ingredients are posted.\n\n← [[Project Atlas/Pantry Chef/1 Big Picture.canvas|1 Big Picture]]",
+			"x": 0,
+			"y": -290,
+			"width": 760,
+			"height": 160
+		}
+	],
+	"edges": [
+		{
+			"id": "9b1f9f8c51c305bc",
+			"fromNode": "82940eaaedb41fd9",
+			"fromSide": "right",
+			"toNode": "37e5cd02125ae0ab",
+			"toSide": "left"
+		},
+		{
+			"id": "ab0ab05430b783a6",
+			"fromNode": "37e5cd02125ae0ab",
+			"fromSide": "right",
+			"toNode": "90896fc84070b302",
+			"toSide": "left"
+		}
+	]
+}

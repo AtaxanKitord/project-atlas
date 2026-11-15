@@ -1,0 +1,103 @@
+{
+	"nodes": [
+		{
+			"id": "1f0708eeee50b62f",
+			"type": "group",
+			"label": "🧩 What happens here",
+			"x": 380,
+			"y": -50,
+			"width": 420,
+			"height": 320
+		},
+		{
+			"id": "61c3a61907f57437",
+			"type": "text",
+			"text": "### 🧩 [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]\nAsks Claude for three recipes and checks the answer has the right shape.\n\n**Uses:** ☁️ Claude API · 🗄️ Request history",
+			"x": 430,
+			"y": 0,
+			"width": 320,
+			"height": 220
+		},
+		{
+			"id": "86d4ea7158ec64d6",
+			"type": "text",
+			"text": "🧩 **[[Project Atlas/Pantry Chef/Parts/Ingredient reader|Ingredient reader]]**\n*[[Project Atlas/Pantry Chef/Stages/2 Read the fridge.canvas|2 · Read the fridge]]*",
+			"x": 0,
+			"y": 60,
+			"width": 260,
+			"height": 100
+		},
+		{
+			"id": "c7c0c1fb505f2ee4",
+			"type": "text",
+			"text": "🧩 **[[Project Atlas/Pantry Chef/Parts/Reply formatter|Reply formatter]]**\n*[[Project Atlas/Pantry Chef/Stages/4 Reply in a thread.canvas|4 · Reply in a thread]]*",
+			"x": 920,
+			"y": 60,
+			"width": 260,
+			"height": 100
+		},
+		{
+			"id": "af82048622cb135d",
+			"type": "text",
+			"text": "🗄️ **[[Project Atlas/Pantry Chef/Storage/Request history|Request history]]**\n*Storage*\nUsed by: Recipe writer",
+			"x": 0,
+			"y": 410,
+			"width": 260,
+			"height": 140,
+			"color": "3"
+		},
+		{
+			"id": "a331658cb9b5ce54",
+			"type": "text",
+			"text": "☁️ **[[Project Atlas/Pantry Chef/Outside Services/Claude API|Claude API]]**\n*Outside service*\nUsed by: Recipe writer",
+			"x": 310,
+			"y": 410,
+			"width": 260,
+			"height": 140,
+			"color": "2"
+		},
+		{
+			"id": "5ffaa538d14f5b5e",
+			"type": "text",
+			"text": "⚙️ **[[Project Atlas/Pantry Chef/Settings/API keys|API keys]]**\n*Setting*\nUsed by: Recipe writer",
+			"x": 620,
+			"y": 410,
+			"width": 260,
+			"height": 140
+		},
+		{
+			"id": "bf07e3bcaf42078d",
+			"type": "text",
+			"text": "⚙️ **[[Project Atlas/Pantry Chef/Settings/Bot settings|Bot settings]]**\n*Setting*\nUsed by: Recipe writer",
+			"x": 930,
+			"y": 410,
+			"width": 260,
+			"height": 140
+		},
+		{
+			"id": "5d63e78232b08f64",
+			"type": "text",
+			"text": "# 3 · Cook up recipes\nClaude suggests three recipes; the request and answer are saved.\n\n← [[Project Atlas/Pantry Chef/1 Big Picture.canvas|1 Big Picture]] · Previous stage: [[Project Atlas/Pantry Chef/Stages/2 Read the fridge.canvas|2 · Read the fridge]] · Next stage: [[Project Atlas/Pantry Chef/Stages/4 Reply in a thread.canvas|4 · Reply in a thread]]\n\n➜ **Hands on:** three recipes",
+			"x": 0,
+			"y": -330,
+			"width": 760,
+			"height": 200
+		}
+	],
+	"edges": [
+		{
+			"id": "c62330fc449d39a4",
+			"fromNode": "86d4ea7158ec64d6",
+			"fromSide": "right",
+			"toNode": "61c3a61907f57437",
+			"toSide": "left"
+		},
+		{
+			"id": "3b0124343d20acf5",
+			"fromNode": "61c3a61907f57437",
+			"fromSide": "right",
+			"toNode": "c7c0c1fb505f2ee4",
+			"toSide": "left"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+  "project": "Pantry Chef",
+  "goal": "A Discord bot for my friends' server that turns what's in your fridge into a recipe idea.",
+  "for_whom": "About 40 friends on a private Discord server",
+  "must_have": [
+    "Recipe from what's in the fridge",
+    "Answer in the same channel",
+    "Save favourite recipes"
+  ],
+  "nice_to_have": [
+    "Vegetarian mode"
+  ],
+  "out_of_scope": [
+    "Statistics",
+    "Payments"
+  ],
+  "stages": [
+    "Read the message",
+    "Ask Claude",
+    "Reply"
+  ],
+  "done_when": [
+    "A friend gets a recipe in under 10 seconds"
+  ],
+  "source": "the owner, before the first line of code",
+  "recorded": "2026-11-15T06:07:56",
+  "first_recorded": "2026-11-15T06:07:56"
+}

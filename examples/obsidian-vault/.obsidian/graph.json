@@ -1,0 +1,81 @@
+{
+  "colorGroups": [
+    {
+      "query": "tag:#atlas/home",
+      "color": {
+        "a": 1,
+        "rgb": 16106818
+      }
+    },
+    {
+      "query": "tag:#atlas/person",
+      "color": {
+        "a": 1,
+        "rgb": 10909918
+      }
+    },
+    {
+      "query": "tag:#atlas/input",
+      "color": {
+        "a": 1,
+        "rgb": 3913924
+      }
+    },
+    {
+      "query": "tag:#atlas/setting",
+      "color": {
+        "a": 1,
+        "rgb": 9345711
+      }
+    },
+    {
+      "query": "tag:#atlas/part",
+      "color": {
+        "a": 1,
+        "rgb": 6000111
+      }
+    },
+    {
+      "query": "tag:#atlas/storage",
+      "color": {
+        "a": 1,
+        "rgb": 15120460
+      }
+    },
+    {
+      "query": "tag:#atlas/outside",
+      "color": {
+        "a": 1,
+        "rgb": 15764043
+      }
+    },
+    {
+      "query": "tag:#atlas/output",
+      "color": {
+        "a": 1,
+        "rgb": 5025646
+      }
+    },
+    {
+      "query": "tag:#atlas/flow",
+      "color": {
+        "a": 1,
+        "rgb": 3065014
+      }
+    },
+    {
+      "query": "tag:#atlas/what-if",
+      "color": {
+        "a": 1,
+        "rgb": 15029067
+      }
+    },
+    {
+      "query": "tag:#atlas/reality",
+      "color": {
+        "a": 1,
+        "rgb": 13724581
+      }
+    }
+  ]
+}

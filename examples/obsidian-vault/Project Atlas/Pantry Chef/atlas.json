@@ -1,0 +1,144 @@
+{
+  "atlas_version": 1,
+  "project": {
+    "name": "Pantry Chef",
+    "one_liner": "A Discord bot that suggests dinner recipes from whatever is in your fridge.",
+    "summary": "Friends type `!cook` and list what is in their fridge. The bot asks Claude for three recipes that use those ingredients and answers in a thread under the message. People can save recipes they like with `!fav`, and every Monday the bot posts which ingredients were used most.\n\nIt is one Node.js process on a small VPS with a SQLite file next to it. This is a fictional example project, made to show what a project atlas looks like.",
+    "audience": "A private Discord server of about 40 friends",
+    "stack": ["Node.js 22", "discord.js", "Claude API", "SQLite"],
+    "how_to_run": "`npm install`, copy `.env.example` to `.env` and fill in the two keys, then `npm start`.",
+    "source": "~/code/pantry-chef"
+  },
+  "nodes": [
+    {"id": "member", "kind": "actor", "name": "Server member", "summary": "Writes what is in their fridge and saves recipes they like."},
+    {"id": "admin", "kind": "actor", "name": "Bot owner", "summary": "Runs the VPS, sets the keys and reads the logs when something goes wrong."},
+    {"id": "cook-cmd", "kind": "input", "name": "!cook command", "summary": "A message starting with !cook and a list of ingredients.", "files": ["src/bot.js:14"]},
+    {"id": "fav-cmd", "kind": "input", "name": "!fav command", "summary": "A reply to one of the bot's recipes, saying 'keep this one'.", "files": ["src/bot.js:31"]},
+    {"id": "monday", "kind": "input", "name": "Monday timer", "summary": "Fires every Monday at 9:00.", "files": ["src/schedule.js"]},
+    {"id": "keys", "kind": "config", "name": "API keys", "summary": "The Discord token and the Claude API key.", "details": "`DISCORD_TOKEN`, `ANTHROPIC_API_KEY` in `.env`."},
+    {"id": "bot-settings", "kind": "config", "name": "Bot settings", "summary": "Model, number of recipes, daily limit per person.", "details": "`MODEL`, `RECIPES_PER_REQUEST` (3), `DAILY_LIMIT` (20) in `.env`."},
+    {"id": "router", "kind": "component", "name": "Message router", "summary": "Picks up bot commands and ignores everything else.", "files": ["src/bot.js"]},
+    {"id": "reader", "kind": "component", "name": "Ingredient reader", "summary": "Turns a messy message into a clean list of ingredients.", "files": ["src/parse.js"]},
+    {"id": "guard", "kind": "component", "name": "Cost guard", "summary": "Stops anyone from asking more than 20 times a day.", "files": ["src/limits.js"], "status": "extra"},
+    {"id": "chef", "kind": "component", "name": "Recipe writer", "summary": "Asks Claude for three recipes and checks the answer has the right shape.", "files": ["src/chef.js"]},
+    {"id": "formatter", "kind": "component", "name": "Reply formatter", "summary": "Turns the recipes into a tidy Discord thread with one message per recipe.", "files": ["src/format.js"]},
+    {"id": "favs", "kind": "component", "name": "Favourites keeper", "summary": "Saves a recipe when someone replies !fav to it.", "files": ["src/favs.js"], "status": "unfinished", "details": "Saving works; there is no command to list your favourites yet."},
+    {"id": "stats", "kind": "component", "name": "Weekly stats", "summary": "Counts last week's ingredients and posts the top ten.", "files": ["src/stats.js"], "status": "extra"},
+    {"id": "db", "kind": "store", "name": "Request history", "summary": "SQLite file with every request, answer and favourite.", "files": ["data/pantry.db"], "status": "risky", "details": "No backups and nothing is ever deleted."},
+    {"id": "claude", "kind": "external", "name": "Claude API", "summary": "Writes the recipes."},
+    {"id": "discord", "kind": "external", "name": "Discord API", "summary": "Delivers messages to the bot and carries its replies."},
+    {"id": "thread", "kind": "output", "name": "Recipe thread", "summary": "Three recipes in a thread under the member's message."},
+    {"id": "weekly-post", "kind": "output", "name": "Monday post", "summary": "The week's ten most-used ingredients, posted in #kitchen."}
+  ],
+  "links": [
+    {"from": "member", "to": "cook-cmd", "label": "ingredients"},
+    {"from": "member", "to": "fav-cmd", "label": "keep this one"},
+    {"from": "cook-cmd", "to": "router", "label": "message"},
+    {"from": "fav-cmd", "to": "router", "label": "reply"},
+    {"from": "router", "to": "guard", "label": "who asked"},
+    {"from": "guard", "to": "reader", "label": "allowed request"},
+    {"from": "reader", "to": "chef", "label": "ingredient list"},
+    {"from": "chef", "to": "claude", "label": "prompt"},
+    {"from": "chef", "to": "formatter", "label": "3 recipes"},
+    {"from": "chef", "to": "db", "label": "request + answer"},
+    {"from": "formatter", "to": "discord", "label": "thread messages"},
+    {"from": "formatter", "to": "thread", "label": "recipes"},
+    {"from": "router", "to": "favs", "label": "!fav reply"},
+    {"from": "favs", "to": "db", "label": "favourite"},
+    {"from": "monday", "to": "stats", "label": "tick"},
+    {"from": "db", "to": "stats", "label": "last week's requests"},
+    {"from": "stats", "to": "weekly-post", "label": "top ten"},
+    {"from": "keys", "to": "chef", "label": "Claude key"},
+    {"from": "keys", "to": "router", "label": "Discord token"},
+    {"from": "bot-settings", "to": "guard", "label": "daily limit"},
+    {"from": "bot-settings", "to": "chef", "label": "model"},
+    {"from": "admin", "to": "keys", "label": "sets"}
+  ],
+  "stages": [
+    {"id": "listen", "name": "Hear the request", "summary": "Bot commands are picked out of the chat and checked against the daily limit.", "nodes": ["router", "guard"], "passes": "an allowed request"},
+    {"id": "read", "name": "Read the fridge", "summary": "The message becomes a clean list of ingredients.", "nodes": ["reader"], "passes": "ingredient list"},
+    {"id": "cook", "name": "Cook up recipes", "summary": "Claude suggests three recipes; the request and answer are saved.", "nodes": ["chef"], "passes": "three recipes"},
+    {"id": "reply", "name": "Reply in a thread", "summary": "Each recipe becomes its own message in a thread under the request.", "nodes": ["formatter"]},
+    {"id": "favs-stage", "name": "Keep favourites", "summary": "A !fav reply saves that recipe.", "nodes": ["favs"], "lane": "background"},
+    {"id": "weekly", "name": "Monday stats", "summary": "Every Monday the most-used ingredients are posted.", "nodes": ["stats"], "lane": "background"}
+  ],
+  "flows": [
+    {
+      "id": "cook-flow", "name": "Ask for a recipe",
+      "trigger": "A member writes `!cook eggs, spinach, feta`",
+      "summary": "The main journey, from a fridge list to three recipes.",
+      "steps": [
+        {"node": "member", "action": "writes !cook with their ingredients", "to": "router", "data": "message"},
+        {"node": "guard", "action": "checks they have asked fewer than 20 times today"},
+        {"node": "reader", "action": "cleans the list and drops duplicates", "to": "chef", "data": "ingredient list"},
+        {"node": "chef", "action": "asks Claude for three recipes", "to": "claude", "data": "prompt"},
+        {"node": "chef", "action": "saves the request and the answer", "to": "db"},
+        {"node": "formatter", "action": "posts each recipe in a thread", "to": "thread"}
+      ],
+      "result": "Three recipes in a thread under the member's message"
+    },
+    {
+      "id": "fav-flow", "name": "Save a favourite",
+      "trigger": "A member replies `!fav` to one of the bot's recipes",
+      "summary": "Keeping a recipe for later.",
+      "steps": [
+        {"node": "member", "action": "replies !fav to a recipe", "to": "router"},
+        {"node": "favs", "action": "saves the recipe under the member's name", "to": "db", "data": "favourite"}
+      ],
+      "result": "The recipe is saved (there is no way to list favourites yet)"
+    },
+    {
+      "id": "monday-flow", "name": "Monday stats",
+      "trigger": "Monday, 9:00",
+      "summary": "The weekly post nobody asked for, but everybody reads.",
+      "steps": [
+        {"node": "monday", "action": "fires", "to": "stats"},
+        {"node": "stats", "action": "reads last week's requests", "to": "db"},
+        {"node": "stats", "action": "posts the ten most-used ingredients", "to": "weekly-post"}
+      ],
+      "result": "A post in #kitchen"
+    }
+  ],
+  "scenarios": [
+    {"id": "claude-down", "question": "What if the Claude API is down?", "category": "outside service", "trigger_node": "claude", "affects": ["chef"], "flows": ["cook-flow"],
+     "what_happens": "The call throws; `chef.js` catches it and replies with a short apology. Nothing is retried.", "user_sees": "\"The chef is out, try again in a minute.\"",
+     "handled": "partly", "evidence": "`src/chef.js:41` try/catch around the API call", "fix": "Retry once after 5 seconds before apologising.", "severity": "medium"},
+    {"id": "spam", "question": "What if someone sends !cook 200 times?", "category": "cost", "trigger_node": "cook-cmd", "affects": ["guard", "chef"], "flows": ["cook-flow"],
+     "what_happens": "The cost guard counts requests per person per day and refuses the 21st.", "user_sees": "\"That's 20 recipes today, see you tomorrow.\"",
+     "handled": "yes", "evidence": "`src/limits.js` DAILY_LIMIT check before the Claude call", "severity": "high"},
+    {"id": "huge-list", "question": "What if someone pastes a whole shopping list of 300 items?", "category": "bad input", "trigger_node": "cook-cmd", "affects": ["reader"],
+     "what_happens": "The reader keeps the first 25 ingredients and says so.", "user_sees": "\"I used the first 25 ingredients.\"",
+     "handled": "yes", "evidence": "`src/parse.js` MAX_INGREDIENTS = 25", "severity": "low"},
+    {"id": "db-grows", "question": "What if the request history grows for a year?", "category": "growth", "trigger_node": "db", "affects": ["stats"],
+     "what_happens": "Every answer is stored in full and nothing is deleted, so the file grows without limit and the Monday post scans all of it.", "user_sees": "Nothing at first; later the Monday post gets slow and the disk fills up.",
+     "handled": "no", "evidence": "No delete or cleanup anywhere in `src/`", "fix": "Delete requests older than 90 days in the Monday job.", "severity": "medium"},
+    {"id": "restart", "question": "What if the bot restarts while writing a reply?", "category": "crash", "trigger_node": "chef", "affects": ["formatter"],
+     "what_happens": "The request is lost: nothing is queued, so the member gets no answer and no error.", "user_sees": "Silence. They have to ask again.",
+     "handled": "no", "evidence": "Requests are handled in memory only (`src/bot.js`)", "fix": "Reply \"one moment…\" first, and on start-up answer requests that have no reply in the history.", "severity": "low"},
+    {"id": "key-leak", "question": "What if the API key ends up in the logs?", "category": "settings", "trigger_node": "keys", "affects": ["chef"],
+     "what_happens": "Errors from the Claude call are logged as full objects, which may include request headers.", "user_sees": "Nothing, until someone reads the logs.",
+     "handled": "unknown", "evidence": "`src/chef.js:44` logs the whole error object; not checked whether it contains headers", "fix": "Log only `err.message`.", "severity": "high"}
+  ],
+  "reality": {
+    "verdict": "The core idea works and grew sensibly: a cost guard and a Monday post were added. Favourites are half done, and the history has no backups or limits.",
+    "plan_check": [
+      {"item": "Recipe from what's in the fridge", "status": "changed", "note": "Three recipes instead of one.", "nodes": ["chef"]},
+      {"item": "Answer in the same channel", "status": "built", "note": "In a thread, which keeps the channel tidy.", "nodes": ["formatter"]},
+      {"item": "Save favourite recipes", "status": "partly", "note": "Saving works; listing them doesn't exist yet.", "nodes": ["favs"]},
+      {"item": "Vegetarian mode", "status": "missing"}
+    ],
+    "as_planned": [{"title": "Recipes from ingredients", "text": "Works end to end.", "nodes": ["chef"]}],
+    "added": [
+      {"title": "Cost guard", "text": "Added after a friend sent 80 requests in one evening.", "nodes": ["guard"]},
+      {"title": "Monday stats", "text": "The plan put statistics out of scope.", "nodes": ["stats"]}
+    ],
+    "unfinished": [{"title": "Listing favourites", "nodes": ["favs"]}],
+    "missing": [{"title": "Vegetarian mode", "text": "Planned as a nice-to-have; no trace in the code."}],
+    "risks": [
+      {"title": "No backups of the history", "nodes": ["db"]},
+      {"title": "Errors may log the API key", "nodes": ["keys", "chef"]}
+    ],
+    "questions": ["Keep every request forever, or only for 90 days?", "Is vegetarian mode still wanted?"]
+  },
+  "glossary": [{"term": "Thread", "meaning": "A Discord sub-conversation attached to one message."}]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "project-atlas",
+  "version": "0.1.0",
+  "description": "Map any project into an Obsidian atlas: linked notes for the graph view plus canvases for the system map, flows, what-if scenarios and plan vs reality.",
+  "author": {
+    "name": "AtaXan",
+    "url": "https://github.com/AtaxanKitord"
+  },
+  "homepage": "https://github.com/AtaxanKitord/project-atlas",
+  "repository": "https://github.com/AtaxanKitord/project-atlas",
+  "license": "MIT",
+  "keywords": ["obsidian", "canvas", "documentation", "architecture", "vibe-coding", "diagram", "knowledge-graph"]
+}

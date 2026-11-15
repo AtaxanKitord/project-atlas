@@ -1,0 +1,302 @@
+{
+	"nodes": [
+		{
+			"id": "bc46c15d8ee58ecd",
+			"type": "group",
+			"label": "🔁 1. Ask for a recipe",
+			"x": 0,
+			"y": 0,
+			"width": 1900,
+			"height": 520
+		},
+		{
+			"id": "ffec51a3310662d2",
+			"type": "group",
+			"label": "🔁 2. Save a favourite",
+			"x": 0,
+			"y": 680,
+			"width": 1520,
+			"height": 260
+		},
+		{
+			"id": "dce7dc1c3c2fa94b",
+			"type": "group",
+			"label": "🔁 3. Monday stats",
+			"x": 0,
+			"y": 1100,
+			"width": 1900,
+			"height": 260
+		},
+		{
+			"id": "0466aec7a81f2ef2",
+			"type": "text",
+			"text": "**▶ Starts when**\nA member writes `!cook eggs, spinach, feta`",
+			"x": 50,
+			"y": 50,
+			"width": 280,
+			"height": 180,
+			"color": "5"
+		},
+		{
+			"id": "10d200811341b17b",
+			"type": "text",
+			"text": "**1. 👤 [[Project Atlas/Pantry Chef/People/Server member|Server member]]**\nwrites !cook with their ingredients\n➜ [[Project Atlas/Pantry Chef/Parts/Message router|Message router]]: message",
+			"x": 430,
+			"y": 50,
+			"width": 280,
+			"height": 180,
+			"color": "6"
+		},
+		{
+			"id": "631d6463e86f8e3d",
+			"type": "text",
+			"text": "**2. 🧩 [[Project Atlas/Pantry Chef/Parts/Cost guard|Cost guard]]**\nchecks they have asked fewer than 20 times today",
+			"x": 810,
+			"y": 50,
+			"width": 280,
+			"height": 180
+		},
+		{
+			"id": "176602269c9bfc9f",
+			"type": "text",
+			"text": "**3. 🧩 [[Project Atlas/Pantry Chef/Parts/Ingredient reader|Ingredient reader]]**\ncleans the list and drops duplicates\n➜ [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]: ingredient list",
+			"x": 1190,
+			"y": 50,
+			"width": 280,
+			"height": 180
+		},
+		{
+			"id": "0fb813ed965c57bf",
+			"type": "text",
+			"text": "**4. 🧩 [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]**\nasks Claude for three recipes\n➜ [[Project Atlas/Pantry Chef/Outside Services/Claude API|Claude API]]: prompt",
+			"x": 1570,
+			"y": 50,
+			"width": 280,
+			"height": 180
+		},
+		{
+			"id": "220773f48243be1e",
+			"type": "text",
+			"text": "**5. 🧩 [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]**\nsaves the request and the answer\n➜ [[Project Atlas/Pantry Chef/Storage/Request history|Request history]]",
+			"x": 1570,
+			"y": 310,
+			"width": 280,
+			"height": 160
+		},
+		{
+			"id": "a3649ff2bf0ccc6a",
+			"type": "text",
+			"text": "**6. 🧩 [[Project Atlas/Pantry Chef/Parts/Reply formatter|Reply formatter]]**\nposts each recipe in a thread\n➜ [[Project Atlas/Pantry Chef/Outputs/Recipe thread|Recipe thread]]",
+			"x": 1190,
+			"y": 310,
+			"width": 280,
+			"height": 160
+		},
+		{
+			"id": "70e0d2fa8c5c0575",
+			"type": "text",
+			"text": "**■ Ends with**\nThree recipes in a thread under the member's message",
+			"x": 810,
+			"y": 310,
+			"width": 280,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "a5ae8f64560a2b56",
+			"type": "text",
+			"text": "**▶ Starts when**\nA member replies `!fav` to one of the bot's recipes",
+			"x": 50,
+			"y": 730,
+			"width": 280,
+			"height": 160,
+			"color": "5"
+		},
+		{
+			"id": "45eaebc6db5cc243",
+			"type": "text",
+			"text": "**1. 👤 [[Project Atlas/Pantry Chef/People/Server member|Server member]]**\nreplies !fav to a recipe\n➜ [[Project Atlas/Pantry Chef/Parts/Message router|Message router]]",
+			"x": 430,
+			"y": 730,
+			"width": 280,
+			"height": 160,
+			"color": "6"
+		},
+		{
+			"id": "b3b1e591dea9fe3c",
+			"type": "text",
+			"text": "**2. 🧩 [[Project Atlas/Pantry Chef/Parts/Favourites keeper|Favourites keeper]]**\nsaves the recipe under the member's name\n➜ [[Project Atlas/Pantry Chef/Storage/Request history|Request history]]: favourite",
+			"x": 810,
+			"y": 730,
+			"width": 280,
+			"height": 160
+		},
+		{
+			"id": "8e6a98a74462889d",
+			"type": "text",
+			"text": "**■ Ends with**\nThe recipe is saved (there is no way to list favourites yet)",
+			"x": 1190,
+			"y": 730,
+			"width": 280,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "2f22e4e29643b840",
+			"type": "text",
+			"text": "**▶ Starts when**\nMonday, 9:00",
+			"x": 50,
+			"y": 1150,
+			"width": 280,
+			"height": 160,
+			"color": "5"
+		},
+		{
+			"id": "ca25bfcb2bfa2358",
+			"type": "text",
+			"text": "**1. 📥 [[Project Atlas/Pantry Chef/Inputs/Monday timer|Monday timer]]**\nfires\n➜ [[Project Atlas/Pantry Chef/Parts/Weekly stats|Weekly stats]]",
+			"x": 430,
+			"y": 1150,
+			"width": 280,
+			"height": 160,
+			"color": "5"
+		},
+		{
+			"id": "3564b680f57aea24",
+			"type": "text",
+			"text": "**2. 🧩 [[Project Atlas/Pantry Chef/Parts/Weekly stats|Weekly stats]]**\nreads last week's requests\n➜ [[Project Atlas/Pantry Chef/Storage/Request history|Request history]]",
+			"x": 810,
+			"y": 1150,
+			"width": 280,
+			"height": 160
+		},
+		{
+			"id": "15ca5a2a7aef8f60",
+			"type": "text",
+			"text": "**3. 🧩 [[Project Atlas/Pantry Chef/Parts/Weekly stats|Weekly stats]]**\nposts the ten most-used ingredients\n➜ [[Project Atlas/Pantry Chef/Outputs/Monday post|Monday post]]",
+			"x": 1190,
+			"y": 1150,
+			"width": 280,
+			"height": 160
+		},
+		{
+			"id": "7b422e50f06c7c3f",
+			"type": "text",
+			"text": "**■ Ends with**\nA post in #kitchen",
+			"x": 1570,
+			"y": 1150,
+			"width": 280,
+			"height": 160,
+			"color": "4"
+		},
+		{
+			"id": "99c423b4e80541b2",
+			"type": "text",
+			"text": "# Pantry Chef\n**2 Flows**\n\nA Discord bot that suggests dinner recipes from whatever is in your fridge.\n\nAtlas: [[Project Atlas/Pantry Chef/Pantry Chef|Pantry Chef]] · [[Project Atlas/Pantry Chef/1 Big Picture.canvas|1 Big Picture]] · [[Project Atlas/Pantry Chef/3 What If.canvas|3 What If]] · [[Project Atlas/Pantry Chef/4 Plan vs Reality.canvas|4 Plan vs Reality]]",
+			"x": 0,
+			"y": -280,
+			"width": 760,
+			"height": 200
+		}
+	],
+	"edges": [
+		{
+			"id": "d6c41dbe97be104f",
+			"fromNode": "0466aec7a81f2ef2",
+			"fromSide": "right",
+			"toNode": "10d200811341b17b",
+			"toSide": "left"
+		},
+		{
+			"id": "fff95692f0cafde3",
+			"fromNode": "10d200811341b17b",
+			"fromSide": "right",
+			"toNode": "631d6463e86f8e3d",
+			"toSide": "left"
+		},
+		{
+			"id": "086912ea28f8de56",
+			"fromNode": "631d6463e86f8e3d",
+			"fromSide": "right",
+			"toNode": "176602269c9bfc9f",
+			"toSide": "left"
+		},
+		{
+			"id": "683d31143bf478f6",
+			"fromNode": "176602269c9bfc9f",
+			"fromSide": "right",
+			"toNode": "0fb813ed965c57bf",
+			"toSide": "left"
+		},
+		{
+			"id": "1a0bd9c5802ad1f9",
+			"fromNode": "0fb813ed965c57bf",
+			"fromSide": "bottom",
+			"toNode": "220773f48243be1e",
+			"toSide": "top"
+		},
+		{
+			"id": "b8686d6c392a8932",
+			"fromNode": "220773f48243be1e",
+			"fromSide": "left",
+			"toNode": "a3649ff2bf0ccc6a",
+			"toSide": "right"
+		},
+		{
+			"id": "32643c7aae6482ba",
+			"fromNode": "a3649ff2bf0ccc6a",
+			"fromSide": "left",
+			"toNode": "70e0d2fa8c5c0575",
+			"toSide": "right"
+		},
+		{
+			"id": "dd53113f6aa0a080",
+			"fromNode": "a5ae8f64560a2b56",
+			"fromSide": "right",
+			"toNode": "45eaebc6db5cc243",
+			"toSide": "left"
+		},
+		{
+			"id": "41a3c67a892cdf1e",
+			"fromNode": "45eaebc6db5cc243",
+			"fromSide": "right",
+			"toNode": "b3b1e591dea9fe3c",
+			"toSide": "left"
+		},
+		{
+			"id": "6907a812759defc2",
+			"fromNode": "b3b1e591dea9fe3c",
+			"fromSide": "right",
+			"toNode": "8e6a98a74462889d",
+			"toSide": "left"
+		},
+		{
+			"id": "9c9d2ce08100b515",
+			"fromNode": "2f22e4e29643b840",
+			"fromSide": "right",
+			"toNode": "ca25bfcb2bfa2358",
+			"toSide": "left"
+		},
+		{
+			"id": "c086e415d4985d70",
+			"fromNode": "ca25bfcb2bfa2358",
+			"fromSide": "right",
+			"toNode": "3564b680f57aea24",
+			"toSide": "left"
+		},
+		{
+			"id": "5a9b4dc65f48f99d",
+			"fromNode": "3564b680f57aea24",
+			"fromSide": "right",
+			"toNode": "15ca5a2a7aef8f60",
+			"toSide": "left"
+		},
+		{
+			"id": "fa8a6c0aa01a468f",
+			"fromNode": "15ca5a2a7aef8f60",
+			"fromSide": "right",
+			"toNode": "7b422e50f06c7c3f",
+			"toSide": "left"
+		}
+	]
+}

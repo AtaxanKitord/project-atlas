@@ -1,0 +1,108 @@
+{
+	"nodes": [
+		{
+			"id": "8e1c2aedf3bd85ea",
+			"type": "group",
+			"label": "❌ Not handled (2)",
+			"x": 0,
+			"y": 0,
+			"width": 420,
+			"height": 770,
+			"color": "1"
+		},
+		{
+			"id": "c1db89def997c0a8",
+			"type": "group",
+			"label": "❔ Unknown, needs a check (1)",
+			"x": 510,
+			"y": 0,
+			"width": 420,
+			"height": 380,
+			"color": "6"
+		},
+		{
+			"id": "0d21b86c7b4a41b0",
+			"type": "group",
+			"label": "⚠️ Partly handled (1)",
+			"x": 1020,
+			"y": 0,
+			"width": 420,
+			"height": 380,
+			"color": "2"
+		},
+		{
+			"id": "29e868913d83a05b",
+			"type": "group",
+			"label": "✅ Handled (2)",
+			"x": 1530,
+			"y": 0,
+			"width": 420,
+			"height": 590,
+			"color": "4"
+		},
+		{
+			"id": "cb09fd176e6d973b",
+			"type": "text",
+			"text": "### [[Project Atlas/Pantry Chef/What If/What if the request history grows for a year|What if the request history grows for a year?]]\n*medium impact* · 🗄️ [[Project Atlas/Pantry Chef/Storage/Request history|Request history]]\n\n**What you would notice:** Nothing at first; later the Monday post gets slow and the disk fills up.\n\n**How to fix it:** Delete requests older than 90 days in the Monday job.",
+			"x": 40,
+			"y": 40,
+			"width": 340,
+			"height": 320
+		},
+		{
+			"id": "236da4d0a234760d",
+			"type": "text",
+			"text": "### [[Project Atlas/Pantry Chef/What If/What if the bot restarts while writing a reply|What if the bot restarts while writing a reply?]]\n*low impact* · 🧩 [[Project Atlas/Pantry Chef/Parts/Recipe writer|Recipe writer]]\n\n**What you would notice:** Silence. They have to ask again.\n\n**How to fix it:** Reply \"one moment…\" first, and on start-up answer requests that have no reply in the history.",
+			"x": 40,
+			"y": 390,
+			"width": 340,
+			"height": 340
+		},
+		{
+			"id": "3d96e3c09625cdd2",
+			"type": "text",
+			"text": "### [[Project Atlas/Pantry Chef/What If/What if the API key ends up in the logs|What if the API key ends up in the logs?]]\n*high impact* · ⚙️ [[Project Atlas/Pantry Chef/Settings/API keys|API keys]]\n\n**What you would notice:** Nothing, until someone reads the logs.\n\n**How to fix it:** Log only `err.message`.",
+			"x": 550,
+			"y": 40,
+			"width": 340,
+			"height": 300
+		},
+		{
+			"id": "f20d591f0b57e80e",
+			"type": "text",
+			"text": "### [[Project Atlas/Pantry Chef/What If/What if the Claude API is down|What if the Claude API is down?]]\n*medium impact* · ☁️ [[Project Atlas/Pantry Chef/Outside Services/Claude API|Claude API]]\n\n**What you would notice:** \"The chef is out, try again in a minute.\"\n\n**How to fix it:** Retry once after 5 seconds before apologising.",
+			"x": 1060,
+			"y": 40,
+			"width": 340,
+			"height": 300
+		},
+		{
+			"id": "322c77b337414685",
+			"type": "text",
+			"text": "### [[Project Atlas/Pantry Chef/What If/What if someone sends !cook 200 times|What if someone sends !cook 200 times?]]\n*high impact* · 📥 [[Project Atlas/Pantry Chef/Inputs/!cook command|!cook command]]\n\n**What you would notice:** \"That's 20 recipes today, see you tomorrow.\"",
+			"x": 1570,
+			"y": 40,
+			"width": 340,
+			"height": 220
+		},
+		{
+			"id": "c1e0f166a416cf56",
+			"type": "text",
+			"text": "### [[Project Atlas/Pantry Chef/What If/What if someone pastes a whole shopping list of 300 items|What if someone pastes a whole shopping list of 300 items?]]\n*low impact* · 📥 [[Project Atlas/Pantry Chef/Inputs/!cook command|!cook command]]\n\n**What you would notice:** \"I used the first 25 ingredients.\"",
+			"x": 1570,
+			"y": 290,
+			"width": 340,
+			"height": 260
+		},
+		{
+			"id": "e2774a06ea7081a0",
+			"type": "text",
+			"text": "# Pantry Chef\n**3 What If**\n\nA Discord bot that suggests dinner recipes from whatever is in your fridge.\n\nAtlas: [[Project Atlas/Pantry Chef/Pantry Chef|Pantry Chef]] · [[Project Atlas/Pantry Chef/1 Big Picture.canvas|1 Big Picture]] · [[Project Atlas/Pantry Chef/2 Flows.canvas|2 Flows]] · [[Project Atlas/Pantry Chef/4 Plan vs Reality.canvas|4 Plan vs Reality]]",
+			"x": 0,
+			"y": -280,
+			"width": 760,
+			"height": 200
+		}
+	],
+	"edges": []
+}
